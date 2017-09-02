@@ -7,7 +7,20 @@ actual rendering using [D3](http://d3js.org).
 For more details, including examples and configuration options, please see our
 [wiki](https://github.com/cpettitt/dagre-d3/wiki).
 
-**This project is not being actively developed or maintained.**
+
+## Test
+
+```
+yarn test
+```
+
+
+## New version
+
+```
+./node_modules/.bin/gulp dist
+```
+
 
 ## License
 
