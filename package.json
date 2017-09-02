@@ -10,7 +10,7 @@
     "renderer"
   ],
   "scripts": {
-    "test": "gulp js:test"
+    "test": "gulp js:test && gulp core-js:test && gulp demo:test"
   },
   "dependencies": {
     "d3": "^3.3.8",
