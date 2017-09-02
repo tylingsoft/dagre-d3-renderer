@@ -10,7 +10,8 @@
     "renderer"
   ],
   "scripts": {
-    "test": "gulp js:test && gulp core-js:test && gulp demo:test"
+    "test": "gulp js:test && gulp core-js:test && gulp demo:test",
+    "upgrade": "yarn-upgrade-all && yarn remove d3 && yarn add d3@3.5.17 && yarn remove lodash && yarn add lodash@3.10.1"
   },
   "dependencies": {
     "d3": "3.5.17",
@@ -50,7 +51,8 @@
     "uglify-js": "^2.4.15",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.2.1"
+    "watchify": "^3.2.1",
+    "yarn-upgrade-all": "^0.1.8"
   },
   "repository": {
     "type": "git",
