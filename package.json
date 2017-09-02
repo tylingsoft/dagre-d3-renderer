@@ -20,11 +20,11 @@
     "lodash": "3.10.1"
   },
   "devDependencies": {
-    "browser-sync": "^2.7.1",
-    "browserify": "^10.2.0",
-    "chai": "^1.9.2",
-    "del": "^1.1.1",
-    "gulp": "^3.8.11",
+    "browser-sync": "^2.18.13",
+    "browserify": "^14.4.0",
+    "chai": "^4.1.2",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
     "gulp-changed": "^1.2.1",
     "gulp-jshint": "^1.10.0",
     "gulp-rename": "^1.2.2",
