@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "test": "gulp js:test && gulp core-js:test && gulp demo:test",
-    "upgrade": "yarn-upgrade-all && yarn remove d3 && yarn add d3@3.5.17 && yarn remove lodash && yarn add lodash@3.10.1"
+    "upgrade": "yarn-upgrade-all && yarn remove d3 && yarn add d3@3.5.17 && yarn remove lodash && yarn add lodash@3.10.1 && yarn remove gulp-uglify && yarn add --dev gulp-uglify@1.2.0"
   },
   "dependencies": {
     "d3": "3.5.17",
@@ -30,11 +30,11 @@
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.6.1",
     "gulp-shell": "^0.6.3",
-    "gulp-sourcemaps": "^1.5.2",
-    "gulp-uglify": "^1.2.0",
-    "gulp-util": "^3.0.4",
-    "gulp-watch": "^4.2.4",
-    "jshint": "^2.5.6",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-uglify": "1.2.0",
+    "gulp-util": "^3.0.8",
+    "gulp-watch": "^4.3.11",
+    "jshint": "^2.9.5",
     "jshint-stylish": "^1.0.2",
     "karma": "^1.7.1",
     "karma-chrome-launcher": "^0.2.0",
