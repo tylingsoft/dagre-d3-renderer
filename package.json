@@ -1,5 +1,5 @@
 {
-  "name": "dagre-d3",
+  "name": "dagre-d3-renderer",
   "version": "0.4.18",
   "description": "A D3-based renderer for Dagre",
   "author": "Chris Pettitt <chris@samsarin.com>",
@@ -56,7 +56,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/cpettitt/dagre-d3.git"
+    "url": "https://github.com/tylingsoft/dagre-d3-renderer.git"
   },
   "license": "MIT"
 }
