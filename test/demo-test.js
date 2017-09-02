@@ -51,6 +51,7 @@ function ls(dir, filter) {
 
 function testDone(url) {
   delete remaining[url];
+  console.log('Remaining: ' + Object.keys(remaining).length);
   if (!Object.keys(remaining).length) {
     stdout.write(reset + "\n");
     stdout.write("\n");
