@@ -166,7 +166,8 @@ function makeBundleTask(src, name, watch, args) {
             .pipe(gulp.dest(BUILD_DIST_DIR))
             .pipe(buffer())
             .pipe(sourcemaps.init({ loadMaps: true }))
-            .pipe(uglify({ preserveComments: "some" }))
+            .pipe(uglify({ output: { comments: "some" } }))
+            .on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
             .pipe(rename({ suffix: ".min" }))
             .pipe(sourcemaps.write("./"))
             .pipe(gulp.dest(BUILD_DIST_DIR));
