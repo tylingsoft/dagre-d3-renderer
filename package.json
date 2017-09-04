@@ -62,5 +62,11 @@
     "type": "git",
     "url": "https://github.com/tylingsoft/dagre-d3-renderer.git"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "standard": {
+    "ignore": [
+      "dist/**/*.js",
+      "demo/**/*.js"
+    ]
+  }
 }
