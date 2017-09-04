@@ -1,23 +1,20 @@
-'use strict'
-
 const path = require('path')
+const _ = require('lodash')
+const browserSync = require('browser-sync')
+const changed = require('gulp-changed')
+const del = require('del')
+const fs = require('fs')
+const gulp = require('gulp')
+const karma = require('karma').server
+const replace = require('gulp-replace')
+const shell = require('gulp-shell')
+const watch = require('gulp-watch')
 
-var _ = require('lodash')
-var browserSync = require('browser-sync')
-var changed = require('gulp-changed')
-var del = require('del')
-var fs = require('fs')
-var gulp = require('gulp')
-var karma = require('karma').server
-var replace = require('gulp-replace')
-var shell = require('gulp-shell')
-var watch = require('gulp-watch')
-
-var BUILD_DIR = 'build'
-var BUILD_DIST_DIR = 'build/dist'
-var DIST_DIR = 'dist'
-var DEMO_SRC = 'demo/**/*'
-var DEMO_BUILD = BUILD_DIST_DIR + '/demo'
+const BUILD_DIR = 'build'
+const BUILD_DIST_DIR = 'build/dist'
+const DIST_DIR = 'dist'
+const DEMO_SRC = 'demo/**/*'
+const DEMO_BUILD = BUILD_DIST_DIR + '/demo'
 
 gulp.task('demo:build', function () {
   return gulp.src(DEMO_SRC)
@@ -56,7 +53,7 @@ gulp.task('core-js:test', [], function (cb) {
 })
 
 gulp.task('version:build', function () {
-  var pkg = readPackageJson()
+  const pkg = readPackageJson()
   fs.writeFileSync('lib/version.js', generateVersionJs(pkg))
 })
 
@@ -94,7 +91,7 @@ gulp.task('clean', function (cb) {
 gulp.task('default', ['build'])
 
 function karmaSingleRun (conf, cb) {
-  var args = {
+  const args = {
     configFile: conf,
     singleRun: true
   }
@@ -111,8 +108,8 @@ function generateVersionJs (pkg) {
 }
 
 function applyTemplate (templateFile, props) {
-  var template = fs.readFileSync(templateFile)
-  var compiled = _.template(template)
+  const template = fs.readFileSync(templateFile)
+  const compiled = _.template(template)
   return compiled(props)
 }
 
@@ -121,6 +118,6 @@ function applyTemplate (templateFile, props) {
  * because it may have changed (e.g. when running in watch mode).
  */
 function readPackageJson () {
-  var packageText = fs.readFileSync('package.json')
+  const packageText = fs.readFileSync('package.json')
   return JSON.parse(packageText)
 }
