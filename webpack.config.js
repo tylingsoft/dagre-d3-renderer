@@ -9,8 +9,8 @@ const configCreator = () => ({
   output: {
     path: path.join(__dirname, 'build', 'dist'),
     filename: '[name].bundle.js',
-    library: "dagreD3",
-    libraryTarget: "umd"
+    library: 'dagreD3',
+    libraryTarget: 'umd'
   },
   module: {
     rules: [
