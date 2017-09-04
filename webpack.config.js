@@ -7,7 +7,9 @@ const config = {
   },
   output: {
     path: path.join(__dirname, 'build', 'dist'),
-    filename: '[name].bundle.js'
+    filename: '[name].bundle.js',
+    library: "dagreD3",
+    libraryTarget: "umd"
   },
   module: {
     rules: [
