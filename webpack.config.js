@@ -1,6 +1,7 @@
 import path from 'path'
+import nodeExternals from 'webpack-node-externals'
 
-const config = {
+const configCreator = () => ({
   target: 'web',
   entry: {
     'dagre-d3': './index.js'
@@ -27,6 +28,12 @@ const config = {
       }
     ]
   }
-}
+})
 
-export default [config]
+const config = configCreator()
+const coreConfig = configCreator()
+
+coreConfig.externals = [nodeExternals()]
+coreConfig.output.filename = '[name].core.bundle.js'
+
+export default [config, coreConfig]

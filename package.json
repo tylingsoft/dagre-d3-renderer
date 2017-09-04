@@ -57,6 +57,7 @@
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.9.0",
     "webpack": "^3.5.5",
+    "webpack-node-externals": "^1.6.0",
     "yarn-upgrade-all": "^0.1.8"
   },
   "repository": {
