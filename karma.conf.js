@@ -34,22 +34,12 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'build/dist/dagre-d3.bundle.js': 'coverage'
     },
-
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress', 'coverage'],
-
-    coverageReporter: {
-      dir: 'build/cov',
-      reporters: [
-        { type: 'html' },
-        { type: 'text-summary' }
-      ]
-    },
+    reporters: ['progress'],
 
     // web server port
     port: 9876,
