@@ -10,7 +10,8 @@
   ],
   "scripts": {
     "test": "gulp js:test && gulp core-js:test && gulp demo:test",
-    "upgrade": "yarn-upgrade-all && yarn remove d3 && yarn add d3@3.5.17 && yarn remove lodash && yarn add lodash@3.10.1"
+    "upgrade": "yarn-upgrade-all && yarn remove d3 && yarn add d3@3.5.17 && yarn remove lodash && yarn add lodash@3.10.1",
+    "build": "node -r babel-register node_modules/.bin/webpack --progress --colors"
   },
   "dependencies": {
     "d3": "3.5.17",
@@ -19,6 +20,10 @@
     "lodash": "3.10.1"
   },
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-es2015": "^6.24.1",
     "browser-sync": "^2.18.13",
     "browserify": "^14.4.0",
     "chai": "^4.1.2",
@@ -51,6 +56,7 @@
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.9.0",
+    "webpack": "^3.5.5",
     "yarn-upgrade-all": "^0.1.8"
   },
   "repository": {
