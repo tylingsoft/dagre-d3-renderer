@@ -1,0 +1,1 @@
+- Replace jshint & JSCS with standard style
