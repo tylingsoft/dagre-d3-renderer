@@ -1,5 +1,6 @@
-// Karma configuration
-// Generated on Sat Oct 18 2014 14:34:48 GMT-0700 (PDT)
+import { configCreator } from './webpack.config'
+
+const webpackConfig = configCreator()
 
 module.exports = function (config) {
   config.set({
@@ -17,7 +18,7 @@ module.exports = function (config) {
 
       'node_modules/lodash/index.js',
       'node_modules/d3/d3.js',
-      'build/dist/dagre-d3.js',
+      'index.js',
 
       'node_modules/chai/chai.js',
       'test/bundle-test.js'
@@ -30,12 +31,30 @@ module.exports = function (config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      'index.js': ['webpack'],
+      'lib/**/*.js': ['coverage']
+    },
+
+    webpack: {
+      module: webpackConfig.module,
+      output: {
+        library: 'dagreD3',
+        libraryTarget: 'umd'
+      }
     },
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['progress', 'coverage'],
+
+    coverageReporter: {
+      dir: 'build/cov',
+      reporters: [
+        { type: 'html' },
+        { type: 'text-summary' }
+      ]
+    },
 
     // web server port
     port: 9876,

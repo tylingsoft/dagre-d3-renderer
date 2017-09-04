@@ -1,7 +1,7 @@
 import path from 'path'
 import nodeExternals from 'webpack-node-externals'
 
-const configCreator = () => ({
+export const configCreator = () => ({
   target: 'web',
   entry: {
     'dagre-d3': './index.js'
