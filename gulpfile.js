@@ -86,11 +86,6 @@ gulp.task("version:build", function() {
     fs.writeFileSync("lib/version.js", generateVersionJs(pkg));
 });
 
-gulp.task("bower:build", function() {
-    var pkg = readPackageJson();
-    fs.writeFileSync("bower.json", generateBowerJson(pkg));
-});
-
 gulp.task("build", ["demo:build", "js:build", "js:test", "core-js:build", "core-js:test", "demo:test"]);
 
 gulp.task("watch", ["demo:watch", "js:watch", "js:test:watch"]);
@@ -108,7 +103,7 @@ gulp.task("serve", ["watch"], function() {
     });
 });
 
-gulp.task("dist", ["version:build", "bower:build", "build"], function() {
+gulp.task("dist", ["version:build", "build"], function() {
     return gulp.src(BUILD_DIST_DIR + "/**/*")
         .pipe(gulp.dest(DIST_DIR));
 });
@@ -195,10 +190,6 @@ function makeBundleTask(src, name, watch, args) {
     }
 
     return bundle();
-}
-
-function generateBowerJson(pkg) {
-    return prettifyJson(applyTemplate("src/bower.json.tmpl", { pkg: pkg }));
 }
 
 function generateVersionJs(pkg) {
