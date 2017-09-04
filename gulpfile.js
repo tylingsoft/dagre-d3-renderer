@@ -48,16 +48,12 @@ gulp.task('js:test:watch', [], function (cb) {
   cb()
 })
 
-gulp.task('core-js:test', [], function (cb) {
-  karmaSingleRun(path.join(__dirname, 'karma.core.conf.js'), cb)
-})
-
 gulp.task('version:build', function () {
   const pkg = readPackageJson()
   fs.writeFileSync('lib/version.js', generateVersionJs(pkg))
 })
 
-gulp.task('build', ['demo:build', 'js:test', 'core-js:test', 'demo:test'])
+gulp.task('build', ['demo:build', 'js:test', 'demo:test'])
 
 gulp.task('watch', ['demo:watch', 'js:watch', 'js:test:watch'])
 
