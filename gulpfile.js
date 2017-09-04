@@ -1,24 +1,17 @@
 'use strict'
 
+const path = require('path')
+
 var _ = require('lodash')
 var browserSync = require('browser-sync')
-var buffer = require('vinyl-buffer')
 var changed = require('gulp-changed')
 var del = require('del')
 var fs = require('fs')
 var gulp = require('gulp')
-var gutil = require('gulp-util')
 var karma = require('karma').server
-var merge = require('merge-stream')
-var prettyTime = require('pretty-hrtime')
-var rename = require('gulp-rename')
 var replace = require('gulp-replace')
 var shell = require('gulp-shell')
-var source = require('vinyl-source-stream')
-var sourcemaps = require('gulp-sourcemaps')
-var uglify = require('gulp-uglify')
 var watch = require('gulp-watch')
-var watchify = require('watchify')
 
 var BUILD_DIR = 'build'
 var BUILD_DIST_DIR = 'build/dist'
@@ -46,12 +39,12 @@ gulp.task('demo:test', ['demo:build'], function () {
 })
 
 gulp.task('js:test', [], function (cb) {
-  karmaSingleRun(__dirname + '/karma.conf.js', cb)
+  karmaSingleRun(path.join(__dirname, 'karma.conf.js'), cb)
 })
 
 gulp.task('js:test:watch', [], function (cb) {
   karma.start({
-    configFile: __dirname + '/karma.conf.js',
+    configFile: path.join(__dirname, 'karma.conf.js'),
     singleRun: false,
     browsers: ['PhantomJS']
   })
@@ -59,7 +52,7 @@ gulp.task('js:test:watch', [], function (cb) {
 })
 
 gulp.task('core-js:test', [], function (cb) {
-  karmaSingleRun(__dirname + '/karma.core.conf.js', cb)
+  karmaSingleRun(path.join(__dirname, 'karma.core.conf.js'), cb)
 })
 
 gulp.task('version:build', function () {
@@ -130,12 +123,4 @@ function applyTemplate (templateFile, props) {
 function readPackageJson () {
   var packageText = fs.readFileSync('package.json')
   return JSON.parse(packageText)
-}
-
-/**
- * Given a JSON string return a prettified version of the string.
- */
-function prettifyJson (str) {
-  var json = JSON.parse(str)
-  return JSON.stringify(json, null, 2)
 }
