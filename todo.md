@@ -1,2 +1,4 @@
 - Replace jshint & JSCS with standard style
 - Replace browserify with webpack
+- Replace PhantomJS with Chrome headless
+- Generate webpack min file with source map
