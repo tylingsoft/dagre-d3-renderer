@@ -19,7 +19,7 @@ module.exports = function (config) {
       'node_modules/d3/d3.js',
       'node_modules/graphlib/dist/graphlib.core.js',
       'node_modules/dagre/dist/dagre.core.js',
-      'build/dist/dagre-d3.core.bundle.js',
+      'build/dist/dagre-d3.core.js',
 
       'node_modules/chai/chai.js',
       'test/bundle-test.js'
@@ -32,7 +32,7 @@ module.exports = function (config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'dist/dagre-d3.core.bundle.js': 'coverage'
+      'dist/dagre-d3.core.js': 'coverage'
     },
 
     // test results reporter to use

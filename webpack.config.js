@@ -8,7 +8,7 @@ const configCreator = () => ({
   },
   output: {
     path: path.join(__dirname, 'build', 'dist'),
-    filename: '[name].bundle.js',
+    filename: '[name].js',
     library: 'dagreD3',
     libraryTarget: 'umd'
   },
@@ -34,6 +34,6 @@ const config = configCreator()
 const coreConfig = configCreator()
 
 coreConfig.externals = [nodeExternals()]
-coreConfig.output.filename = '[name].core.bundle.js'
+coreConfig.output.filename = '[name].core.js'
 
 export default [config, coreConfig]
