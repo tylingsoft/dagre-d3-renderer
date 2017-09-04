@@ -1,5 +1,5 @@
 // A *very* simple test runner to ensure that the demos work as expected.
-var webpage = require("webpage"),
+const webpage = require("webpage"),
     system = require("system"),
     stdout = system.stdout,
     stderr = system.stderr,
@@ -7,25 +7,25 @@ var webpage = require("webpage"),
     fs = require("fs"),
     start = new Date();
 
-var red = "\033[31m";
-var green = "\033[32m";
-var grey = "\033[30;1m";
-var reset = "\033[0m";
+const red = "\033[31m";
+const green = "\033[32m";
+const grey = "\033[30;1m";
+const reset = "\033[0m";
 
 function htmlFile(file) { return file.match(/.*\.html/); }
 
-var remaining =  {};
+const remaining =  {};
 ls("./demo", htmlFile).forEach(function(f) { remaining[f] = true; });
 ls("./build/dist/demo", htmlFile).forEach(function(f) { remaining[f] = true; });
-var testCount = Object.keys(remaining).length;
-var failures = [];
+const testCount = Object.keys(remaining).length;
+const failures = [];
 
 stdout.write("\n");
 stdout.write(grey + "  ");
 
 Object.keys(remaining).forEach(function(url) {
   stdout.write(".");
-  var page = webpage.create();
+  const page = webpage.create();
   page.onError = function(msg, trace) {
     failures.push({ url: url, msg: msg, trace: trace });
     testDone(url);
@@ -40,7 +40,7 @@ Object.keys(remaining).forEach(function(url) {
 });
 
 function ls(dir, filter) {
-  var set = [];
+  const set = [];
   fs.list(dir).forEach(function(file) {
     if (filter(file)) {
       set.push(dir + "/" + file);

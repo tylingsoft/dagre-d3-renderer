@@ -4,17 +4,17 @@
  * a pre-release.
  */
 
-var fs = require('fs'),
+const fs = require('fs'),
   semver = require('semver')
 
-var packageFile = fs.readFileSync('package.json')
-var packageJson = JSON.parse(packageFile)
+const packageFile = fs.readFileSync('package.json')
+const packageJson = JSON.parse(packageFile)
 
 if (!('version' in packageJson)) {
   bail('ERROR: Could not find version in package.json')
 }
 
-var ver = semver.parse(packageJson.version)
+const ver = semver.parse(packageJson.version)
 
 if (ver.prerelease.length > 0) {
   bail('ERROR: version is a pre-release: ' + ver)

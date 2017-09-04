@@ -1,11 +1,11 @@
-var expect = chai.expect
+const expect = chai.expect
 
 d3.select('body').append('link')
   .attr('rel', 'stylesheet')
   .attr('href', '/base/test/bundle-test.css')
 
 describe('dagreD3', function () {
-  var svg,
+  let svg,
     g
 
   beforeEach(function () {
@@ -105,10 +105,10 @@ describe('dagreD3', function () {
   it('does not grow node dimensions when re-rendering', function () {
     g.setNode('a', { id: 'a' })
     dagreD3.render()(svg, g)
-    var bbox = svg.select('#a rect').node().getBBox()
+    const bbox = svg.select('#a rect').node().getBBox()
 
     dagreD3.render()(svg, g)
-    var bbox2 = svg.select('#a rect').node().getBBox()
+    const bbox2 = svg.select('#a rect').node().getBBox()
 
     expect(bbox.width).equals(bbox2.width)
     expect(bbox.height).equals(bbox2.height)
@@ -119,10 +119,10 @@ describe('dagreD3', function () {
     g.setNode('b')
     g.setEdge('a', 'b', { labelId: 'ab', label: 'foo' })
     dagreD3.render()(svg, g)
-    var bbox = svg.select('#ab').node().getBBox()
+    const bbox = svg.select('#ab').node().getBBox()
 
     dagreD3.render()(svg, g)
-    var bbox2 = svg.select('#ab').node().getBBox()
+    const bbox2 = svg.select('#ab').node().getBBox()
 
     expect(bbox.width).equals(bbox2.width)
     expect(bbox.height).equals(bbox2.height)
@@ -138,7 +138,7 @@ describe('dagreD3', function () {
     })
 
     it('can use an existing DOM element', function () {
-      var elem = document.createElement('p')
+      const elem = document.createElement('p')
       elem.setAttribute('id', 'a-lab')
       elem.innerHTML = 'Hello'
 
@@ -150,7 +150,7 @@ describe('dagreD3', function () {
     })
 
     it('can use an function that returns a DOM element', function () {
-      var elem = document.createElement('p')
+      const elem = document.createElement('p')
       elem.setAttribute('id', 'a-lab')
       elem.innerHTML = 'Hello'
 
@@ -209,7 +209,7 @@ describe('dagreD3', function () {
       g.setNode('a', { id: 'a', label: 'multi\nline' })
       dagreD3.render()(svg, g)
 
-      var text = d3.select('#a text')
+      const text = d3.select('#a text')
       expect(text.empty()).to.be.false
       expect(d3.select(text.selectAll('tspan')[0][0]).text()).equals('multi')
       expect(d3.select(text.selectAll('tspan')[0][1]).text()).equals('line')
@@ -219,7 +219,7 @@ describe('dagreD3', function () {
       g.setNode('a', { id: 'a', label: 'multi\\nline' })
       dagreD3.render()(svg, g)
 
-      var text = d3.select('#a text')
+      const text = d3.select('#a text')
       expect(text.empty()).to.be.false
       expect(d3.select(text.selectAll('tspan')[0][0]).text()).equals('multi')
       expect(d3.select(text.selectAll('tspan')[0][1]).text()).equals('line')
@@ -227,7 +227,7 @@ describe('dagreD3', function () {
   })
 
   describe('styles', function () {
-    var canonicalRed
+    let canonicalRed
 
     beforeEach(function () {
       // Each browser has a different way to represent colors canonically. We
@@ -274,7 +274,7 @@ describe('dagreD3', function () {
       g.setNode('a', { id: 'a', shape: 'rect', width: 100, height: 200, padding: 0 })
       dagreD3.render()(svg, g)
 
-      var rect = d3.select('#a rect')
+      const rect = d3.select('#a rect')
       expect(rect.empty()).to.be.false
       expect(rect.node().getBBox().width).to.equal(100)
       expect(rect.node().getBBox().height).to.equal(200)
@@ -284,7 +284,7 @@ describe('dagreD3', function () {
       g.setNode('a', { id: 'a', shape: 'circle', width: 100, height: 250, padding: 0 })
       dagreD3.render()(svg, g)
 
-      var circle = d3.select('#a circle')
+      const circle = d3.select('#a circle')
       expect(circle.empty()).to.be.false
       // Should be half of greater of width, height
       expect(circle.attr('r') * 2).to.equal(250)
@@ -294,7 +294,7 @@ describe('dagreD3', function () {
       g.setNode('a', { id: 'a', shape: 'ellipse', width: 100, height: 250, padding: 0 })
       dagreD3.render()(svg, g)
 
-      var ellipse = d3.select('#a ellipse')
+      const ellipse = d3.select('#a ellipse')
       expect(ellipse.empty()).to.be.false
       expect(ellipse.attr('rx') * 2).to.equal(100)
       expect(ellipse.attr('ry') * 2).to.equal(250)
