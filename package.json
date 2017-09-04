@@ -2,7 +2,6 @@
   "name": "dagre-d3-renderer",
   "version": "0.4.18",
   "description": "A D3-based renderer for Dagre",
-  "author": "Chris Pettitt <chris@samsarin.com>",
   "keywords": [
     "graph",
     "dagre",

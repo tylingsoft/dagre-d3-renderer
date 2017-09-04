@@ -1,1 +1,2 @@
 - Replace jshint & JSCS with standard style
+- Replace browserify with webpack
