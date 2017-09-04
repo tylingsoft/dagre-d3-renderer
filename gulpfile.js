@@ -2,7 +2,6 @@
 
 var _ = require("lodash");
 var browserSync = require("browser-sync");
-var browserify = require("browserify");
 var buffer = require("vinyl-buffer");
 var changed = require("gulp-changed");
 var del = require("del");
@@ -48,19 +47,11 @@ gulp.task("demo:test", ["demo:build"], function() {
         .pipe(shell("phantomjs <%= (file.path) %>"));
 });
 
-gulp.task("js:build", function() {
-    return makeJsBundleTask(false);
-});
-
-gulp.task("js:watch", function() {
-    return makeJsBundleTask(true);
-});
-
-gulp.task("js:test", ["js:build"], function(cb) {
+gulp.task("js:test", [], function(cb) {
     karmaSingleRun(__dirname + "/karma.conf.js", cb);
 });
 
-gulp.task("js:test:watch", ["js:build"], function(cb) {
+gulp.task("js:test:watch", [], function(cb) {
     karma.start({
         configFile: __dirname + "/karma.conf.js",
         singleRun: false,
@@ -69,15 +60,7 @@ gulp.task("js:test:watch", ["js:build"], function(cb) {
     cb();
 });
 
-gulp.task("core-js:build", function() {
-    return makeBundleTask("./index.js", "dagre-d3.core.js", false, {
-        standalone: "dagreD3",
-        bundleExternal: false,
-        debug: true
-    });
-});
-
-gulp.task("core-js:test", ["core-js:build"], function(cb) {
+gulp.task("core-js:test", [], function(cb) {
     karmaSingleRun(__dirname + "/karma.core.conf.js", cb);
 });
 
@@ -86,7 +69,7 @@ gulp.task("version:build", function() {
     fs.writeFileSync("lib/version.js", generateVersionJs(pkg));
 });
 
-gulp.task("build", ["demo:build", "js:build", "js:test", "core-js:build", "core-js:test", "demo:test"]);
+gulp.task("build", ["demo:build", "js:test", "core-js:test", "demo:test"]);
 
 gulp.task("watch", ["demo:watch", "js:watch", "js:test:watch"]);
 
@@ -130,66 +113,6 @@ function karmaSingleRun(conf, cb) {
     }
 
     karma.start(args, cb);
-}
-
-function makeJsBundleTask(watch) {
-    return makeBundleTask("./index.js", "dagre-d3.js", watch, {
-        standalone: "dagreD3",
-        external: ["node_modules/d3/index.js", "node_modules/d3/d3.js"],
-        debug: true
-    });
-}
-
-function makeBundleTask(src, name, watch, args) {
-    var bundler = browserify(_.defaults(args, watchify.args))
-        .add(src);
-
-    function bundle(changedFiles) {
-        gutil.log("Starting '" + gutil.colors.cyan("browserify " + name) + "'...");
-        var start = process.hrtime();
-        var compileStream = bundler.bundle()
-            .on("error", function(err) {
-                gutil.log(gutil.colors.red("browserify error (" + name + "): " + err.message));
-                this.emit("end");
-            })
-            .on("end", function() {
-                var end = process.hrtime(start);
-                gutil.log("Finished '" + gutil.colors.cyan("browserify " + name) + "' after",
-                    gutil.colors.magenta(prettyTime(end)));
-            })
-            .pipe(source(name))
-            .pipe(gulp.dest(BUILD_DIST_DIR))
-            .pipe(buffer())
-            .pipe(sourcemaps.init({ loadMaps: true }))
-            .pipe(uglify({ output: { comments: "some" } }))
-            .on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
-            .pipe(rename({ suffix: ".min" }))
-            .pipe(sourcemaps.write("./"))
-            .pipe(gulp.dest(BUILD_DIST_DIR));
-
-        var lintStream;
-        if (changedFiles) {
-            lintStream = gulp.src(changedFiles);
-        } else {
-            lintStream = gulp.src(["index.js", "lib/**/*.js"]);
-        }
-
-        lintStream = lintStream
-            .pipe(jshint())
-            .pipe(jshint.reporter(jshintStylish));
-        if (!watch) {
-            lintStream = lintStream.pipe(jshint.reporter("fail"));
-        }
-
-        return merge(lintStream, compileStream);
-    }
-
-    if (watch) {
-        bundler = watchify(bundler);
-        bundler.on("update", bundle);
-    }
-
-    return bundle();
 }
 
 function generateVersionJs(pkg) {
