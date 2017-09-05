@@ -1,4 +1,3 @@
 - Replace browserify with webpack
 - Replace PhantomJS with Chrome headless
 - Generate webpack min file with source map
-- Replace var with const or let
