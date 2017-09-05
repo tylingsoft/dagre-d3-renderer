@@ -1,4 +1,5 @@
 module.exports = {
+  d3: require('d3'),
   graphlib: require('./lib/graphlib'),
   dagre: require('dagre'),
   intersect: require('./lib/intersect'),
