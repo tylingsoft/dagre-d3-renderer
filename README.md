@@ -24,7 +24,7 @@ yarn test
 ## New version
 
 ```
-./node_modules/.bin/gulp dist
+node -r babel-register ./node_modules/.bin/gulp dist
 ```
 
 

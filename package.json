@@ -1,6 +1,6 @@
 {
   "name": "dagre-d3-renderer",
-  "version": "0.4.18",
+  "version": "0.4.19",
   "description": "A D3-based renderer for Dagre",
   "keywords": [
     "graph",
@@ -8,6 +8,7 @@
     "graphlib",
     "renderer"
   ],
+  "main": "index.js",
   "scripts": {
     "lint": "standard",
     "test": "node -r babel-register ./node_modules/.bin/gulp js:test && node -r babel-register ./node_modules/.bin/gulp demo:test",
