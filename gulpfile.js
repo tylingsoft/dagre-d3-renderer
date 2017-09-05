@@ -5,7 +5,7 @@ import changed from 'gulp-changed'
 import del from 'del'
 import fs from 'fs'
 import gulp from 'gulp'
-import { server } from 'karma'
+import { Server } from 'karma'
 import replace from 'gulp-replace'
 import shell from 'gulp-shell'
 import watch from 'gulp-watch'
@@ -40,11 +40,12 @@ gulp.task('js:test', [], function (cb) {
 })
 
 gulp.task('js:test:watch', [], function (cb) {
-  server.start({
+  const server = new Server({
     configFile: path.join(__dirname, 'karma.conf.js'),
     singleRun: false,
     browsers: ['PhantomJS']
   })
+  server.start()
   cb()
 })
 
@@ -55,7 +56,7 @@ gulp.task('version:build', function () {
 
 gulp.task('build', ['demo:build', 'js:test', 'demo:test'])
 
-gulp.task('watch', ['demo:watch', 'js:watch', 'js:test:watch'])
+gulp.task('watch', ['demo:watch', 'js:test:watch'])
 
 gulp.task('serve', ['watch'], function () {
   browserSync.init({
@@ -96,7 +97,8 @@ function karmaSingleRun (conf, cb) {
     args.browsers = process.env.BROWSERS.split(',')
   }
 
-  server.start(args, cb)
+  const server = new Server(args, cb)
+  server.start()
 }
 
 function generateVersionJs (pkg) {
