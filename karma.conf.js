@@ -2,7 +2,7 @@ import { configCreator } from './webpack.config'
 
 const webpackConfig = configCreator()
 
-module.exports = function (config) {
+export default function (config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)

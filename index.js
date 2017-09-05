@@ -7,7 +7,7 @@ import render from './lib/render'
 import util from './lib/util'
 import version from './lib/version'
 
-module.exports = {
+export default {
   d3,
   graphlib,
   dagre,
