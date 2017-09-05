@@ -16,8 +16,6 @@ module.exports = function (config) {
     files: [
       { pattern: 'test/*.css', included: false },
 
-      'node_modules/lodash/index.js',
-      'node_modules/d3/d3.js',
       'index.js',
 
       'node_modules/chai/chai.js',
