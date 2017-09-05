@@ -80,25 +80,21 @@ return /******/ (function(modules) { // webpackBootstrap
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _lodash = __webpack_require__(2);
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// Public utility functions
-module.exports = {
-  isSubgraph: isSubgraph,
-  edgeToId: edgeToId,
-  applyStyle: applyStyle,
-  applyClass: applyClass,
-  applyTransition: applyTransition
-
-  /*
-   * Returns true if the specified node in the graph is a subgraph node. A
-   * subgraph node is one that contains other nodes.
-   */
-};function isSubgraph(g, v) {
+/*
+ * Returns true if the specified node in the graph is a subgraph node. A
+ * subgraph node is one that contains other nodes.
+ */
+function isSubgraph(g, v) {
   return !!g.children(v).length;
 }
 
@@ -136,6 +132,15 @@ function applyTransition(selection, g) {
   return selection;
 }
 
+// Public utility functions
+exports.default = {
+  isSubgraph: isSubgraph,
+  edgeToId: edgeToId,
+  applyStyle: applyStyle,
+  applyClass: applyClass,
+  applyTransition: applyTransition
+};
+
 /***/ }),
 /* 1 */
 /***/ (function(module, exports) {
@@ -155,8 +160,9 @@ module.exports = require("lodash");
 "use strict";
 
 
-module.exports = intersectEllipse;
-
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 function intersectEllipse(node, rx, ry, point) {
   // Formulae from: http://mathworld.wolfram.com/Ellipse-LineIntersection.html
 
@@ -180,12 +186,18 @@ function intersectEllipse(node, rx, ry, point) {
   return { x: cx + dx, y: cy + dy };
 }
 
+exports.default = intersectEllipse;
+
 /***/ }),
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
 var _addTextLabel = __webpack_require__(19);
 
@@ -200,8 +212,6 @@ var _addSvgLabel = __webpack_require__(21);
 var _addSvgLabel2 = _interopRequireDefault(_addSvgLabel);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-module.exports = addLabel;
 
 function addLabel(root, node, location) {
   var label = node.label;
@@ -234,6 +244,8 @@ function addLabel(root, node, location) {
   return labelSvg;
 }
 
+exports.default = addLabel;
+
 /***/ }),
 /* 5 */
 /***/ (function(module, exports) {
@@ -247,11 +259,14 @@ module.exports = require("dagre");
 "use strict";
 
 
-module.exports = intersectNode;
-
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 function intersectNode(node, point) {
   return node.intersect(point);
 }
+
+exports.default = intersectNode;
 
 /***/ }),
 /* 7 */
@@ -260,17 +275,21 @@ function intersectNode(node, point) {
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _intersectEllipse = __webpack_require__(3);
 
 var _intersectEllipse2 = _interopRequireDefault(_intersectEllipse);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-module.exports = intersectCircle;
-
 function intersectCircle(node, rx, point) {
   return (0, _intersectEllipse2.default)(node, rx, rx, point);
 }
+
+exports.default = intersectCircle;
 
 /***/ }),
 /* 8 */
@@ -279,13 +298,15 @@ function intersectCircle(node, rx, point) {
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _intersectLine = __webpack_require__(13);
 
 var _intersectLine2 = _interopRequireDefault(_intersectLine);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-module.exports = intersectPolygon;
 
 /*
  * Returns the point ({x, y}) at which the point argument intersects with the
@@ -338,6 +359,8 @@ function intersectPolygon(node, polyPoints, point) {
   return intersections[0];
 }
 
+exports.default = intersectPolygon;
+
 /***/ }),
 /* 9 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -345,8 +368,9 @@ function intersectPolygon(node, polyPoints, point) {
 "use strict";
 
 
-module.exports = intersectRect;
-
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 function intersectRect(node, point) {
   var x = node.x;
   var y = node.y;
@@ -379,12 +403,18 @@ function intersectRect(node, point) {
   return { x: x + sx, y: y + sy };
 }
 
+exports.default = intersectRect;
+
 /***/ }),
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
 var _d = __webpack_require__(1);
 
@@ -416,7 +446,7 @@ var _version2 = _interopRequireDefault(_version);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-module.exports = {
+exports.default = {
   d3: _d2.default,
   graphlib: _graphlib2.default,
   dagre: _dagre2.default,
@@ -438,6 +468,10 @@ module.exports = require("graphlib");
 
 "use strict";
 
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
 var _intersectNode = __webpack_require__(6);
 
@@ -461,7 +495,7 @@ var _intersectRect2 = _interopRequireDefault(_intersectRect);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-module.exports = {
+exports.default = {
   node: _intersectNode2.default,
   circle: _intersectCircle2.default,
   ellipse: _intersectEllipse2.default,
@@ -476,8 +510,9 @@ module.exports = {
 "use strict";
 
 
-module.exports = intersectLine;
-
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 /*
  * Returns the point at which two lines, p and q, intersect or returns
  * undefined if they do not intersect.
@@ -542,12 +577,18 @@ function sameSign(r1, r2) {
   return r1 * r2 > 0;
 }
 
+exports.default = intersectLine;
+
 /***/ }),
 /* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
 var _lodash = __webpack_require__(2);
 
@@ -592,8 +633,6 @@ var _arrows2 = __webpack_require__(26);
 var _arrows3 = _interopRequireDefault(_arrows2);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-module.exports = render;
 
 // This design is based on http://bost.ocks.org/mike/chart/.
 function render() {
@@ -775,12 +814,18 @@ function createOrSelectGroup(root, name) {
   return selection;
 }
 
+exports.default = render;
+
 /***/ }),
 /* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
 var _d = __webpack_require__(1);
 
@@ -791,8 +836,6 @@ var _util = __webpack_require__(0);
 var _util2 = _interopRequireDefault(_util);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-module.exports = positionNodes;
 
 function positionNodes(selection, g) {
   var created = selection.filter(function () {
@@ -809,12 +852,18 @@ function positionNodes(selection, g) {
   _util2.default.applyTransition(selection, g).style('opacity', 1).attr('transform', translate);
 }
 
+exports.default = positionNodes;
+
 /***/ }),
 /* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
 var _d = __webpack_require__(1);
 
@@ -829,8 +878,6 @@ var _util = __webpack_require__(0);
 var _util2 = _interopRequireDefault(_util);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-module.exports = positionEdgeLabels;
 
 function positionEdgeLabels(selection, g) {
   var created = selection.filter(function () {
@@ -847,12 +894,18 @@ function positionEdgeLabels(selection, g) {
   _util2.default.applyTransition(selection, g).style('opacity', 1).attr('transform', translate);
 }
 
+exports.default = positionEdgeLabels;
+
 /***/ }),
 /* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
 var _d = __webpack_require__(1);
 
@@ -863,8 +916,6 @@ var _util = __webpack_require__(0);
 var _util2 = _interopRequireDefault(_util);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-module.exports = positionClusters;
 
 function positionClusters(selection, g) {
   var created = selection.filter(function () {
@@ -893,12 +944,18 @@ function positionClusters(selection, g) {
   });
 }
 
+exports.default = positionClusters;
+
 /***/ }),
 /* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
 var _lodash = __webpack_require__(2);
 
@@ -917,8 +974,6 @@ var _util = __webpack_require__(0);
 var _util2 = _interopRequireDefault(_util);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-module.exports = createNodes;
 
 function createNodes(selection, g, shapes) {
   var simpleNodes = g.nodes().filter(function (v) {
@@ -972,6 +1027,8 @@ function createNodes(selection, g, shapes) {
   return svgNodes;
 }
 
+exports.default = createNodes;
+
 /***/ }),
 /* 19 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -979,13 +1036,15 @@ function createNodes(selection, g, shapes) {
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _util = __webpack_require__(0);
 
 var _util2 = _interopRequireDefault(_util);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-module.exports = addTextLabel;
 
 /*
  * Attaches a text label to the specified root. Handles escape sequences.
@@ -1026,12 +1085,18 @@ function processEscapeSequences(text) {
   return newText;
 }
 
+exports.default = addTextLabel;
+
 /***/ }),
 /* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
@@ -1040,8 +1105,6 @@ var _util = __webpack_require__(0);
 var _util2 = _interopRequireDefault(_util);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-module.exports = addHtmlLabel;
 
 function addHtmlLabel(root, node) {
   var fo = root.append('foreignObject').attr('width', '100000');
@@ -1075,6 +1138,8 @@ function addHtmlLabel(root, node) {
   return fo;
 }
 
+exports.default = addHtmlLabel;
+
 /***/ }),
 /* 21 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1082,13 +1147,15 @@ function addHtmlLabel(root, node) {
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _util = __webpack_require__(0);
 
 var _util2 = _interopRequireDefault(_util);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-module.exports = addSVGLabel;
 
 function addSVGLabel(root, node) {
   var domNode = root;
@@ -1100,12 +1167,18 @@ function addSVGLabel(root, node) {
   return domNode;
 }
 
+exports.default = addSVGLabel;
+
 /***/ }),
 /* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
 var _d = __webpack_require__(1);
 
@@ -1120,8 +1193,6 @@ var _addLabel = __webpack_require__(4);
 var _addLabel2 = _interopRequireDefault(_addLabel);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-module.exports = createClusters;
 
 function createClusters(selection, g) {
   var clusters = g.nodes().filter(function (v) {
@@ -1158,12 +1229,18 @@ function createClusters(selection, g) {
   return svgClusters;
 }
 
+exports.default = createClusters;
+
 /***/ }),
 /* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
 var _d = __webpack_require__(1);
 
@@ -1182,8 +1259,6 @@ var _util = __webpack_require__(0);
 var _util2 = _interopRequireDefault(_util);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-module.exports = createEdgeLabels;
 
 function createEdgeLabels(selection, g) {
   var svgEdgeLabels = selection.selectAll('g.edgeLabel').data(g.edges(), function (e) {
@@ -1213,12 +1288,18 @@ function createEdgeLabels(selection, g) {
   return svgEdgeLabels;
 }
 
+exports.default = createEdgeLabels;
+
 /***/ }),
 /* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
 var _d = __webpack_require__(1);
 
@@ -1237,8 +1318,6 @@ var _util = __webpack_require__(0);
 var _util2 = _interopRequireDefault(_util);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-module.exports = createEdgePaths;
 
 function createEdgePaths(selection, g, arrows) {
   var svgPaths = selection.selectAll('g.edgePath').data(g.edges(), function (e) {
@@ -1359,12 +1438,18 @@ function exit(svgPaths, g) {
   });
 }
 
+exports.default = createEdgePaths;
+
 /***/ }),
 /* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
 var _intersectRect = __webpack_require__(9);
 
@@ -1383,13 +1468,6 @@ var _intersectPolygon = __webpack_require__(8);
 var _intersectPolygon2 = _interopRequireDefault(_intersectPolygon);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-module.exports = {
-  rect: rect,
-  ellipse: ellipse,
-  circle: circle,
-  diamond: diamond
-};
 
 function rect(parent, bbox, node) {
   var shapeSvg = parent.insert('rect', ':first-child').attr('rx', node.rx).attr('ry', node.ry).attr('x', -bbox.width / 2).attr('y', -bbox.height / 2).attr('width', bbox.width).attr('height', bbox.height);
@@ -1442,6 +1520,13 @@ function diamond(parent, bbox, node) {
   return shapeSvg;
 }
 
+exports.default = {
+  rect: rect,
+  ellipse: ellipse,
+  circle: circle,
+  diamond: diamond
+};
+
 /***/ }),
 /* 26 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1449,18 +1534,15 @@ function diamond(parent, bbox, node) {
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _util = __webpack_require__(0);
 
 var _util2 = _interopRequireDefault(_util);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-module.exports = {
-  'default': normal,
-  'normal': normal,
-  'vee': vee,
-  'undirected': undirected
-};
 
 function normal(parent, id, edge, type) {
   var marker = parent.append('marker').attr('id', id).attr('viewBox', '0 0 10 10').attr('refX', 9).attr('refY', 5).attr('markerUnits', 'strokeWidth').attr('markerWidth', 8).attr('markerHeight', 6).attr('orient', 'auto');
@@ -1492,6 +1574,13 @@ function undirected(parent, id, edge, type) {
   }
 }
 
+exports.default = {
+  'default': normal,
+  'normal': normal,
+  'vee': vee,
+  'undirected': undirected
+};
+
 /***/ }),
 /* 27 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1499,8 +1588,11 @@ function undirected(parent, id, edge, type) {
 "use strict";
 
 
-module.exports = "0.4.19";
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = '0.4.20';
 
 /***/ })
-/******/ ]);
+/******/ ])["default"];
 });
