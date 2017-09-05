@@ -1,6 +1,6 @@
 import d3 from 'd3'
 import graphlib from 'graphlib'
-import dagre from 'dagre'
+import dagre from 'dagre-layout'
 
 import intersect from './lib/intersect'
 import render from './lib/render'

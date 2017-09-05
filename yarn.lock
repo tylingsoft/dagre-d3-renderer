@@ -1388,9 +1388,9 @@ d@1:
   dependencies:
     es5-ext "^0.10.9"
 
-dagre@^0.7.4:
-  version "0.7.4"
-  resolved "https://registry.yarnpkg.com/dagre/-/dagre-0.7.4.tgz#de72f0e74a550ce11ce638f0a136fed712398022"
+dagre-layout@^0.7.5:
+  version "0.7.5"
+  resolved "https://registry.yarnpkg.com/dagre-layout/-/dagre-layout-0.7.5.tgz#600fe4030c83b7fc4d48cca3a5d3b65fba839bb7"
   dependencies:
     graphlib "^1.0.5"
     lodash "^3.10.0"
