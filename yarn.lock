@@ -1388,12 +1388,12 @@ d@1:
   dependencies:
     es5-ext "^0.10.9"
 
-dagre-layout@^0.7.5:
-  version "0.7.5"
-  resolved "https://registry.yarnpkg.com/dagre-layout/-/dagre-layout-0.7.5.tgz#600fe4030c83b7fc4d48cca3a5d3b65fba839bb7"
+dagre-layout@^0.7.6:
+  version "0.7.6"
+  resolved "https://registry.yarnpkg.com/dagre-layout/-/dagre-layout-0.7.6.tgz#664a147f60cf09740a3692565304ac9bb453d327"
   dependencies:
     graphlib "^1.0.5"
-    lodash "^3.10.0"
+    lodash "3.10.1"
 
 dashdash@^1.12.0:
   version "1.14.1"
@@ -3577,7 +3577,7 @@ lodash.templatesettings@^3.0.0:
     lodash._reinterpolate "^3.0.0"
     lodash.escape "^3.0.0"
 
-lodash@^3.10.0, lodash@^3.10.1, lodash@^3.8.0:
+lodash@3.10.1, lodash@^3.10.0, lodash@^3.10.1, lodash@^3.8.0:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
