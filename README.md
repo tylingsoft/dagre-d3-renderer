@@ -7,6 +7,13 @@ This project is an out-of-box replacement for [dagre-d3](https://github.com/cpet
 For more details, including examples and configuration options, please see our [wiki](https://github.com/cpettitt/dagre-d3/wiki).
 
 
+## Build
+
+```
+yarn build
+```
+
+
 ## Test
 
 ```
