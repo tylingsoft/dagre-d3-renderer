@@ -1388,11 +1388,11 @@ d@1:
   dependencies:
     es5-ext "^0.10.9"
 
-dagre-layout@^0.7.6:
-  version "0.7.6"
-  resolved "https://registry.yarnpkg.com/dagre-layout/-/dagre-layout-0.7.6.tgz#664a147f60cf09740a3692565304ac9bb453d327"
+dagre-layout@^0.7.7:
+  version "0.7.7"
+  resolved "https://registry.yarnpkg.com/dagre-layout/-/dagre-layout-0.7.7.tgz#19acfb219f620a6e8f58f871381bbd04345c8456"
   dependencies:
-    graphlib "^1.0.5"
+    graphlib "^2.1.1"
     lodash "3.10.1"
 
 dashdash@^1.12.0:
@@ -2570,12 +2570,6 @@ graceful-fs@~1.2.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/graceful-readlink/-/graceful-readlink-1.0.1.tgz#4cafad76bc62f02fa039b2f94e9a3dd3a391a725"
 
-graphlib@^1.0.5:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/graphlib/-/graphlib-1.0.7.tgz#0cab2df0ffe6abe070b2625bfa1edb6ec967b8b1"
-  dependencies:
-    lodash "^3.10.0"
-
 graphlib@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/graphlib/-/graphlib-2.1.1.tgz#42352c52ba2f4d035cb566eb91f7395f76ebc951"
@@ -3577,7 +3571,7 @@ lodash.templatesettings@^3.0.0:
     lodash._reinterpolate "^3.0.0"
     lodash.escape "^3.0.0"
 
-lodash@3.10.1, lodash@^3.10.0, lodash@^3.10.1, lodash@^3.8.0:
+lodash@3.10.1, lodash@^3.10.1, lodash@^3.8.0:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
