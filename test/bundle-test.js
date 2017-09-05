@@ -1,3 +1,9 @@
+/* eslint-env mocha */
+import chai from 'chai'
+import d3 from 'd3'
+import _ from 'lodash'
+import dagreD3 from '../index'
+
 const expect = chai.expect
 
 d3.select('body').append('link')
@@ -133,7 +139,7 @@ describe('dagreD3', function () {
       g.setNode('a', { labelType: 'html', label: "<p id='a-lab'>Hello</p>" })
       dagreD3.render()(svg, g)
 
-      expect(d3.select('#a-lab').empty()).to.be.false
+      expect(d3.select('#a-lab').empty()).to.equal(false)
       expect(d3.select('#a-lab').text()).equals('Hello')
     })
 
@@ -145,7 +151,7 @@ describe('dagreD3', function () {
       g.setNode('a', { id: 'a', labelType: 'html', label: elem })
       dagreD3.render()(svg, g)
 
-      expect(d3.select('#a #a-lab').empty()).to.be.false
+      expect(d3.select('#a #a-lab').empty()).to.equal(false)
       expect(d3.select('#a #a-lab').text()).equals('Hello')
     })
 
@@ -157,7 +163,7 @@ describe('dagreD3', function () {
       g.setNode('a', { id: 'a', labelType: 'html', label: function () { return elem } })
       dagreD3.render()(svg, g)
 
-      expect(d3.select('#a #a-lab').empty()).to.be.false
+      expect(d3.select('#a #a-lab').empty()).to.equal(false)
       expect(d3.select('#a #a-lab').text()).equals('Hello')
     })
 
@@ -167,14 +173,14 @@ describe('dagreD3', function () {
       g.setEdge('a', 'b', { labelType: 'html', label: "<p id='ab-lab'>Hello</p>" })
       dagreD3.render()(svg, g)
 
-      expect(d3.select('#ab-lab').empty()).to.be.false
+      expect(d3.select('#ab-lab').empty()).to.equal(false)
       expect(d3.select('#ab-lab').text()).equals('Hello')
     })
   })
 
   describe('SVG labels', function () {
     it('can be created for a node', function () {
-      link = document.createElementNS('http://www.w3.org/2000/svg', 'a')
+      const link = document.createElementNS('http://www.w3.org/2000/svg', 'a')
       link.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', 'http://google.com/')
       link.setAttribute('target', '_blank')
       link.setAttribute('id', 'a-lab')
@@ -183,12 +189,12 @@ describe('dagreD3', function () {
       g.setNode('a', { labelType: 'svg', label: link })
       dagreD3.render()(svg, g)
 
-      expect(d3.select('#a-lab').empty()).to.be.false
+      expect(d3.select('#a-lab').empty()).to.equal(false)
       expect(d3.select('#a-lab').text()).equals('Google')
     })
 
     it('can be created for an edge', function () {
-      link = document.createElementNS('http://www.w3.org/2000/svg', 'a')
+      const link = document.createElementNS('http://www.w3.org/2000/svg', 'a')
       link.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', 'http://yahoo.com/')
       link.setAttribute('target', '_blank')
       link.setAttribute('id', 'ab-lab')
@@ -199,7 +205,7 @@ describe('dagreD3', function () {
       g.setEdge('a', 'b', { labelType: 'svg', label: link })
       dagreD3.render()(svg, g)
 
-      expect(d3.select('#ab-lab').empty()).to.be.false
+      expect(d3.select('#ab-lab').empty()).to.equal(false)
       expect(d3.select('#ab-lab').text()).equals('Yahoo')
     })
   })
@@ -210,7 +216,7 @@ describe('dagreD3', function () {
       dagreD3.render()(svg, g)
 
       const text = d3.select('#a text')
-      expect(text.empty()).to.be.false
+      expect(text.empty()).to.equal(false)
       expect(d3.select(text.selectAll('tspan')[0][0]).text()).equals('multi')
       expect(d3.select(text.selectAll('tspan')[0][1]).text()).equals('line')
     })
@@ -220,7 +226,7 @@ describe('dagreD3', function () {
       dagreD3.render()(svg, g)
 
       const text = d3.select('#a text')
-      expect(text.empty()).to.be.false
+      expect(text.empty()).to.equal(false)
       expect(d3.select(text.selectAll('tspan')[0][0]).text()).equals('multi')
       expect(d3.select(text.selectAll('tspan')[0][1]).text()).equals('line')
     })
@@ -275,7 +281,7 @@ describe('dagreD3', function () {
       dagreD3.render()(svg, g)
 
       const rect = d3.select('#a rect')
-      expect(rect.empty()).to.be.false
+      expect(rect.empty()).to.equal(false)
       expect(rect.node().getBBox().width).to.equal(100)
       expect(rect.node().getBBox().height).to.equal(200)
     })
@@ -285,7 +291,7 @@ describe('dagreD3', function () {
       dagreD3.render()(svg, g)
 
       const circle = d3.select('#a circle')
-      expect(circle.empty()).to.be.false
+      expect(circle.empty()).to.equal(false)
       // Should be half of greater of width, height
       expect(circle.attr('r') * 2).to.equal(250)
     })
@@ -295,7 +301,7 @@ describe('dagreD3', function () {
       dagreD3.render()(svg, g)
 
       const ellipse = d3.select('#a ellipse')
-      expect(ellipse.empty()).to.be.false
+      expect(ellipse.empty()).to.equal(false)
       expect(ellipse.attr('rx') * 2).to.equal(100)
       expect(ellipse.attr('ry') * 2).to.equal(250)
     })
@@ -307,8 +313,8 @@ describe('dagreD3', function () {
       g.setNode('b', { id: 'b', class: 'b-class' })
       dagreD3.render()(svg, g)
 
-      expect(d3.select('#a').classed('a-class')).to.be.true
-      expect(d3.select('#b').classed('b-class')).to.be.true
+      expect(d3.select('#a').classed('a-class')).to.equal(true)
+      expect(d3.select('#b').classed('b-class')).to.equal(true)
     })
 
     it('can be set for edges', function () {
@@ -318,8 +324,8 @@ describe('dagreD3', function () {
       g.setEdge('b', 'a', { id: 'd', class: 'd-class' })
       dagreD3.render()(svg, g)
 
-      expect(d3.select('#c').classed('ab-class')).to.be.true
-      expect(d3.select('#d').classed('d-class')).to.be.true
+      expect(d3.select('#c').classed('ab-class')).to.equal(true)
+      expect(d3.select('#d').classed('d-class')).to.equal(true)
     })
   })
 })

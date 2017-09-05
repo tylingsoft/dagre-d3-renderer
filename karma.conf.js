@@ -15,10 +15,7 @@ module.exports = function (config) {
     // list of files / patterns to load in the browser
     files: [
       { pattern: 'test/*.css', included: false },
-
       'index.js',
-
-      'node_modules/chai/chai.js',
       'test/bundle-test.js'
     ],
 
@@ -30,6 +27,7 @@ module.exports = function (config) {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
       'index.js': ['webpack'],
+      'test/bundle-test.js': ['webpack'],
       'lib/**/*.js': ['coverage']
     },
 
