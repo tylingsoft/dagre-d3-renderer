@@ -1,9 +1,18 @@
+import d3 from 'd3'
+import graphlib from 'graphlib'
+import dagre from 'dagre'
+
+import intersect from './lib/intersect'
+import render from './lib/render'
+import util from './lib/util'
+import version from './lib/version'
+
 module.exports = {
-  d3: require('d3'),
-  graphlib: require('graphlib'),
-  dagre: require('dagre'),
-  intersect: require('./lib/intersect'),
-  render: require('./lib/render'),
-  util: require('./lib/util'),
-  version: require('./lib/version')
+  d3,
+  graphlib,
+  dagre,
+  intersect,
+  render,
+  util,
+  version
 }
