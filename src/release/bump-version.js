@@ -2,8 +2,8 @@
  * Bumps the minor version and sets the prelease tag.
  */
 
-const fs = require('fs'),
-  semver = require('semver')
+const fs = require('fs')
+const semver = require('semver')
 
 const packageFile = fs.readFileSync('package.json')
 const packageJson = JSON.parse(packageFile)
@@ -19,6 +19,6 @@ fs.writeFileSync('package.json', JSON.stringify(packageJson, undefined, 2))
 
 // Write an error message to stderr and then exit immediately with an error.
 function bail (msg) {
-  stderr.write(msg + '\n')
+  process.stderr.write(msg + '\n')
   process.exit(1)
 }

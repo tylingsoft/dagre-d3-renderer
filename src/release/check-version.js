@@ -4,8 +4,8 @@
  * a pre-release.
  */
 
-const fs = require('fs'),
-  semver = require('semver')
+const fs = require('fs')
+const semver = require('semver')
 
 const packageFile = fs.readFileSync('package.json')
 const packageJson = JSON.parse(packageFile)
