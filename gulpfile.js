@@ -2,7 +2,6 @@ import path from 'path'
 import _ from 'lodash'
 import browserSync from 'browser-sync'
 import changed from 'gulp-changed'
-import del from 'del'
 import fs from 'fs'
 import gulp from 'gulp'
 import { Server } from 'karma'
@@ -10,7 +9,6 @@ import replace from 'gulp-replace'
 import shell from 'gulp-shell'
 import watch from 'gulp-watch'
 
-const BUILD_DIR = 'build'
 const BUILD_DIST_DIR = 'build/dist'
 const DIST_DIR = 'dist'
 const DEMO_SRC = 'demo/**/*'
@@ -79,10 +77,6 @@ gulp.task('dist', ['version:build', 'build'], function () {
 gulp.task('release', ['dist'], function () {
   return gulp.src('src/release/release.sh')
     .pipe(shell('<%= (file.path) %>'))
-})
-
-gulp.task('clean', function (cb) {
-  del(BUILD_DIR, cb)
 })
 
 gulp.task('default', ['build'])
