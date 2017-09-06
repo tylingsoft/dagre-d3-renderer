@@ -1,12 +1,12 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("d3"), require("lodash"), require("dagre"), require("graphlib"));
+		module.exports = factory(require("d3"), require("lodash"), require("dagre-layout"), require("graphlib"));
 	else if(typeof define === 'function' && define.amd)
-		define(["d3", "lodash", "dagre", "graphlib"], factory);
+		define(["d3", "lodash", "dagre-layout", "graphlib"], factory);
 	else if(typeof exports === 'object')
-		exports["dagreD3"] = factory(require("d3"), require("lodash"), require("dagre"), require("graphlib"));
+		exports["dagreD3"] = factory(require("d3"), require("lodash"), require("dagre-layout"), require("graphlib"));
 	else
-		root["dagreD3"] = factory(root["d3"], root["lodash"], root["dagre"], root["graphlib"]);
+		root["dagreD3"] = factory(root["d3"], root["lodash"], root["dagre-layout"], root["graphlib"]);
 })(this, function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXTERNAL_MODULE_2__, __WEBPACK_EXTERNAL_MODULE_5__, __WEBPACK_EXTERNAL_MODULE_11__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -250,7 +250,7 @@ exports.default = addLabel;
 /* 5 */
 /***/ (function(module, exports) {
 
-module.exports = require("dagre");
+module.exports = require("dagre-layout");
 
 /***/ }),
 /* 6 */
@@ -424,9 +424,9 @@ var _graphlib = __webpack_require__(11);
 
 var _graphlib2 = _interopRequireDefault(_graphlib);
 
-var _dagre = __webpack_require__(5);
+var _dagreLayout = __webpack_require__(5);
 
-var _dagre2 = _interopRequireDefault(_dagre);
+var _dagreLayout2 = _interopRequireDefault(_dagreLayout);
 
 var _intersect = __webpack_require__(12);
 
@@ -449,7 +449,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = {
   d3: _d2.default,
   graphlib: _graphlib2.default,
-  dagre: _dagre2.default,
+  dagre: _dagreLayout2.default,
   intersect: _intersect2.default,
   render: _render2.default,
   util: _util2.default,
@@ -594,7 +594,7 @@ var _lodash = __webpack_require__(2);
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
-var _dagre = __webpack_require__(5);
+var _dagreLayout = __webpack_require__(5);
 
 var _positionNodes = __webpack_require__(15);
 
@@ -652,7 +652,7 @@ function render() {
     var edgeLabels = _createEdgeLabels(createOrSelectGroup(outputGroup, 'edgeLabels'), g);
     var nodes = _createNodes(createOrSelectGroup(outputGroup, 'nodes'), g, _shapes);
 
-    (0, _dagre.layout)(g);
+    (0, _dagreLayout.layout)(g);
 
     (0, _positionNodes2.default)(nodes, g);
     (0, _positionEdgeLabels2.default)(edgeLabels, g);
@@ -1591,7 +1591,7 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = '0.4.20';
+exports.default = '0.4.21';
 
 /***/ })
 /******/ ])["default"];
