@@ -1,8 +1,7 @@
 import path from 'path'
-import browserSync from 'browser-sync'
 import changed from 'gulp-changed'
 import gulp from 'gulp'
-import { Server } from 'karma'
+import { KarmaServer } from 'karma'
 import replace from 'gulp-replace'
 import shell from 'gulp-shell'
 import watch from 'gulp-watch'
@@ -36,7 +35,7 @@ gulp.task('js:test', [], function (cb) {
 })
 
 gulp.task('js:test:watch', [], function (cb) {
-  const server = new Server({
+  const server = new KarmaServer({
     configFile: path.join(__dirname, 'karma.conf.js'),
     singleRun: false,
     browsers: ['PhantomJS']
@@ -48,19 +47,6 @@ gulp.task('js:test:watch', [], function (cb) {
 gulp.task('build', ['demo:build', 'js:test', 'demo:test'])
 
 gulp.task('watch', ['demo:watch', 'js:test:watch'])
-
-gulp.task('serve', ['watch'], function () {
-  browserSync.init({
-    files: BUILD_DIST_DIR + '/**/*',
-    notify: false,
-    open: false,
-    reloadOnRestart: true,
-    server: {
-      baseDir: BUILD_DIST_DIR,
-      directory: true
-    }
-  })
-})
 
 gulp.task('dist', ['build'], function () {
   return gulp.src(BUILD_DIST_DIR + '/**/*')
@@ -79,6 +65,6 @@ function karmaSingleRun (conf, cb) {
     args.browsers = process.env.BROWSERS.split(',')
   }
 
-  const server = new Server(args, cb)
+  const server = new KarmaServer(args, cb)
   server.start()
 }
