@@ -1,1 +1,3 @@
 - Replace PhantomJS with Chrome headless
+- Setup Travis
+- Setup coveralls.io

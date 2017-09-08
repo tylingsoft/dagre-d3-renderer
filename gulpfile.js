@@ -74,11 +74,6 @@ gulp.task('dist', ['version:build', 'build'], function () {
     .pipe(gulp.dest(DIST_DIR))
 })
 
-gulp.task('release', ['dist'], function () {
-  return gulp.src('src/release/release.sh')
-    .pipe(shell('<%= (file.path) %>'))
-})
-
 gulp.task('default', ['build'])
 
 function karmaSingleRun (conf, cb) {
