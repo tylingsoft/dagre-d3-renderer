@@ -15,7 +15,7 @@ export default function (config) {
     // list of files / patterns to load in the browser
     files: [
       { pattern: 'test/*.css', included: false },
-      'index.js',
+      'dist/dagre-d3.js',
       'test/bundle-test.js'
     ],
 
@@ -26,7 +26,6 @@ export default function (config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'index.js': ['webpack'],
       'test/bundle-test.js': ['webpack']
     },
 
