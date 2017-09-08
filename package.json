@@ -8,7 +8,7 @@
     "graphlib",
     "renderer"
   ],
-  "main": "dist/dagre-d3.js",
+  "main": "dist/dagre-d3.core.js",
   "scripts": {
     "lint": "standard",
     "test": "node -r babel-register ./node_modules/.bin/gulp js:test && node -r babel-register ./node_modules/.bin/gulp demo:test",
@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "d3": "3.5.17",
-    "dagre-layout": "^0.7.9",
+    "dagre-layout": "^0.8.0",
     "graphlib": "^2.1.1",
     "lodash": "^4.17.4"
   },
