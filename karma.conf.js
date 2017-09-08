@@ -30,11 +30,7 @@ export default function (config) {
     },
 
     webpack: {
-      module: webpackConfig.module,
-      output: {
-        library: 'dagreD3',
-        libraryTarget: 'umd'
-      }
+      module: webpackConfig.module
     },
 
     // test results reporter to use

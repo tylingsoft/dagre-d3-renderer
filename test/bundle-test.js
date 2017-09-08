@@ -2,7 +2,8 @@
 import chai from 'chai'
 import d3 from 'd3'
 import _ from 'lodash'
-import dagreD3 from '../index'
+
+const dagreD3 = window.dagreD3
 
 const expect = chai.expect
 
