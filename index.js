@@ -5,7 +5,7 @@ import dagre from 'dagre-layout'
 import intersect from './lib/intersect'
 import render from './lib/render'
 import util from './lib/util'
-import version from './lib/version'
+import { version } from './package.json'
 
 export default {
   d3,

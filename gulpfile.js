@@ -1,8 +1,6 @@
 import path from 'path'
-import _ from 'lodash'
 import browserSync from 'browser-sync'
 import changed from 'gulp-changed'
-import fs from 'fs'
 import gulp from 'gulp'
 import { Server } from 'karma'
 import replace from 'gulp-replace'
@@ -47,11 +45,6 @@ gulp.task('js:test:watch', [], function (cb) {
   cb()
 })
 
-gulp.task('version:build', function () {
-  const pkg = readPackageJson()
-  fs.writeFileSync('lib/version.js', generateVersionJs(pkg))
-})
-
 gulp.task('build', ['demo:build', 'js:test', 'demo:test'])
 
 gulp.task('watch', ['demo:watch', 'js:test:watch'])
@@ -69,7 +62,7 @@ gulp.task('serve', ['watch'], function () {
   })
 })
 
-gulp.task('dist', ['version:build', 'build'], function () {
+gulp.task('dist', ['build'], function () {
   return gulp.src(BUILD_DIST_DIR + '/**/*')
     .pipe(gulp.dest(DIST_DIR))
 })
@@ -88,23 +81,4 @@ function karmaSingleRun (conf, cb) {
 
   const server = new Server(args, cb)
   server.start()
-}
-
-function generateVersionJs (pkg) {
-  return applyTemplate('src/version.js.tmpl', { pkg: pkg })
-}
-
-function applyTemplate (templateFile, props) {
-  const template = fs.readFileSync(templateFile)
-  const compiled = _.template(template)
-  return compiled(props)
-}
-
-/**
- * Read the contents of package.json in as JSON. Do not cache package.json,
- * because it may have changed (e.g. when running in watch mode).
- */
-function readPackageJson () {
-  const packageText = fs.readFileSync('package.json')
-  return JSON.parse(packageText)
 }
