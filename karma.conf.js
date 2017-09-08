@@ -1,4 +1,4 @@
-import { configCreator } from './webpack.config'
+import { configCreator } from './webpack.config.js'
 
 const webpackConfig = configCreator()
 
@@ -27,8 +27,7 @@ export default function (config) {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
       'index.js': ['webpack'],
-      'test/bundle-test.js': ['webpack'],
-      'lib/**/*.js': ['coverage']
+      'test/bundle-test.js': ['webpack']
     },
 
     webpack: {
@@ -42,15 +41,7 @@ export default function (config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress', 'coverage'],
-
-    coverageReporter: {
-      dir: 'build/cov',
-      reporters: [
-        { type: 'html' },
-        { type: 'text-summary' }
-      ]
-    },
+    reporters: ['progress'],
 
     // web server port
     port: 9876,

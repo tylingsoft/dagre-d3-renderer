@@ -1,4 +1,2 @@
 - Replace PhantomJS with Chrome headless
-- Setup Travis
-- Setup coveralls.io
 - d3 as peer dependency

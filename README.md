@@ -1,8 +1,5 @@
 # dagre-d3-renderer - A D3-based renderer for dagre
 
-[![Build Status](https://secure.travis-ci.org/tylingsoft/dagre-d3-renderer.png?branch=master)](http://travis-ci.org/tylingsoft/dagre-d3-renderer)
-[![Coverage Status](https://coveralls.io/repos/github/tylingsoft/dagre-d3-renderer/badge.svg?branch=master)](https://coveralls.io/github/tylingsoft/dagre-d3-renderer?branch=master)
-
 This project is an out-of-box replacement for [dagre-d3](https://github.com/cpettitt/dagre-d3) which is not being actively developed or maintained.
 
 This project isn't built from scratch. It's based on the original [dagre-d3](https://github.com/cpettitt/dagre-d3) project.

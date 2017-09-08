@@ -1,7 +1,7 @@
 import path from 'path'
 import changed from 'gulp-changed'
 import gulp from 'gulp'
-import { KarmaServer } from 'karma'
+import { Server as KarmaServer } from 'karma'
 import replace from 'gulp-replace'
 import shell from 'gulp-shell'
 import watch from 'gulp-watch'
