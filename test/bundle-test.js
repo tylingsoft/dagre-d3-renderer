@@ -1,11 +1,8 @@
 /* eslint-env mocha */
-import chai from 'chai'
-import d3 from 'd3'
-import _ from 'lodash'
-
+const _ = window._
+const expect = window.chai.expect
+const d3 = window.d3
 const dagreD3 = window.dagreD3
-
-const expect = chai.expect
 
 d3.select('body').append('link')
   .attr('rel', 'stylesheet')

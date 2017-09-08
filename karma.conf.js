@@ -1,7 +1,3 @@
-import { configCreator } from './webpack.config.js'
-
-const webpackConfig = configCreator()
-
 export default function (config) {
   config.set({
 
@@ -15,6 +11,9 @@ export default function (config) {
     // list of files / patterns to load in the browser
     files: [
       { pattern: 'test/*.css', included: false },
+      'node_modules/chai/chai.js',
+      'node_modules/lodash/lodash.js',
+      'node_modules/d3/d3.js',
       'dist/dagre-d3.js',
       'test/bundle-test.js'
     ],
@@ -26,11 +25,6 @@ export default function (config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'test/bundle-test.js': ['webpack']
-    },
-
-    webpack: {
-      module: webpackConfig.module
     },
 
     // test results reporter to use
