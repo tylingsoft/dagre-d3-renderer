@@ -440,9 +440,7 @@ var _util = __webpack_require__(0);
 
 var _util2 = _interopRequireDefault(_util);
 
-var _version = __webpack_require__(27);
-
-var _version2 = _interopRequireDefault(_version);
+var _package = __webpack_require__(27);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -453,7 +451,7 @@ exports.default = {
   intersect: _intersect2.default,
   render: _render2.default,
   util: _util2.default,
-  version: _version2.default
+  version: _package.version
 };
 
 /***/ }),
@@ -1575,23 +1573,17 @@ function undirected(parent, id, edge, type) {
 }
 
 exports.default = {
-  'default': normal,
-  'normal': normal,
-  'vee': vee,
-  'undirected': undirected
+  normal: normal,
+  vee: vee,
+  undirected: undirected,
+  default: normal
 };
 
 /***/ }),
 /* 27 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = '0.4.21';
+module.exports = {"name":"dagre-d3-renderer","version":"0.4.23","description":"A D3-based renderer for Dagre","keywords":["graph","dagre","graphlib","renderer","d3"],"main":"dist/dagre-d3.core.js","scripts":{"lint":"standard","karma":"node -r babel-register ./node_modules/.bin/karma start --single-run","test":"yarn karma && node -r babel-register ./node_modules/.bin/gulp demo:test","upgrade":"yarn upgrade --latest && yarn remove d3 && yarn add d3@3.5.17","build":"node -r babel-register node_modules/.bin/webpack --progress --colors","build:watch":"yarn build --watch"},"dependencies":{"d3":"3.5.17","dagre-layout":"^0.8.0","graphlib":"^2.1.1","lodash":"^4.17.4"},"devDependencies":{"babel-core":"^6.26.0","babel-loader":"^7.1.2","babel-preset-env":"^1.6.0","babel-preset-es2015":"^6.24.1","chai":"^4.1.2","gulp":"^3.9.1","gulp-shell":"^0.6.3","karma":"^1.7.1","karma-chrome-launcher":"^2.2.0","karma-firefox-launcher":"^1.0.1","karma-mocha":"^1.3.0","karma-safari-launcher":"^1.0.0","karma-webpack":"^2.0.4","mocha":"^3.5.0","phantomjs-prebuilt":"^2.1.15","standard":"^10.0.3","webpack":"^3.5.5","webpack-node-externals":"^1.6.0"},"repository":{"type":"git","url":"https://github.com/tylingsoft/dagre-d3-renderer.git"},"license":"MIT","standard":{"ignore":["dist/**/*.js"]}}
 
 /***/ })
 /******/ ])["default"];

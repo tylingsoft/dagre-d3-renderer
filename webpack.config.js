@@ -7,7 +7,7 @@ export const configCreator = () => ({
     'dagre-d3': './index.js'
   },
   output: {
-    path: path.join(__dirname, 'build', 'dist'),
+    path: path.join(__dirname, 'dist'),
     filename: '[name].js',
     library: 'dagreD3',
     libraryTarget: 'umd',

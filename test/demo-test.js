@@ -17,8 +17,7 @@ const reset = '\x1b[0m'
 function htmlFile (file) { return file.match(/.*\.html/) }
 
 const remaining = {}
-ls('./demo', htmlFile).forEach(function (f) { remaining[f] = true })
-ls('./build/dist/demo', htmlFile).forEach(function (f) { remaining[f] = true })
+ls('./dist/demo', htmlFile).forEach(function (f) { remaining[f] = true })
 const testCount = Object.keys(remaining).length
 const failures = []
 
