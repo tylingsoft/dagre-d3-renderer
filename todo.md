@@ -1,3 +1,4 @@
 - Replace browserify with webpack
 - Replace PhantomJS with Chrome headless
 - Generate webpack min file with source map
+- "main": "dist/dagre-d3.core.js" ?
