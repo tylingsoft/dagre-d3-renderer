@@ -22,7 +22,7 @@ export const configCreator = () => ({
           loader: 'babel-loader',
           options: {
             presets: [
-              ['env', { targets: { browsers: ['last 3 versions'] } }]
+              'env'
             ]
           }
         }
