@@ -1,7 +1,7 @@
 import path from 'path'
 import nodeExternals from 'webpack-node-externals'
 
-export const configCreator = () => ({
+const config = {
   target: 'web',
   entry: {
     'dagre-d3': './index.js'
@@ -25,12 +25,31 @@ export const configCreator = () => ({
     ]
   },
   devtool: 'source-map'
-})
+}
 
-const config = configCreator()
-const coreConfig = configCreator()
-
-coreConfig.externals = [nodeExternals()]
-coreConfig.output.filename = '[name].core.js'
+const coreConfig = {
+  target: 'node',
+  externals: [nodeExternals()],
+  entry: {
+    'dagre-d3': './index.js'
+  },
+  output: {
+    path: path.join(__dirname, 'dist'),
+    filename: '[name].core.js',
+    libraryTarget: 'commonjs2'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader'
+        }
+      }
+    ]
+  },
+  devtool: 'source-map'
+}
 
 export default [config, coreConfig]
