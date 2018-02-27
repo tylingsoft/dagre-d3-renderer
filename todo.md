@@ -1,3 +1,2 @@
 - Replace PhantomJS with Chrome headless
 - d3 as peer dependency
-- Rewrite graphlib

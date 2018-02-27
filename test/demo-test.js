@@ -5,7 +5,7 @@ const webpage = require('webpage')
 const system = require('system')
 const stdout = system.stdout
 const stderr = system.stderr
-    // Too bad this replaces the more function fs module from nodejs...
+// Too bad this replaces the more function fs module from nodejs...
 const fs = require('fs')
 const start = new Date()
 
