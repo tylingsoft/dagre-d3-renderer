@@ -13,13 +13,13 @@ function setupPanel (panel, elem, title) {
 const jsCode = setupPanel(jsPanel, jsElem, 'JavaScript')
 const cssCode = setupPanel(cssPanel, cssElem, 'CSS')
 
-const hljsRoot = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0'
+const hljsRoot = 'https://highlightjs.org/static'
 
 bodyElem.append('link')
   .attr('rel', 'stylesheet')
-  .attr('href', hljsRoot + '/styles/xcode.min.css')
+  .attr('href', hljsRoot + '/demo/styles/xcode.css')
 bodyElem.append('script')
-  .attr('src', hljsRoot + '/highlight.min.js')
+  .attr('src', hljsRoot + '/highlight.site.pack.js')
   .on('load', function () {
     window.hljs.highlightBlock(jsCode.node())
     window.hljs.highlightBlock(cssCode.node())
