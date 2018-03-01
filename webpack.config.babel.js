@@ -2,6 +2,7 @@ import path from 'path'
 import nodeExternals from 'webpack-node-externals'
 
 const config = {
+  mode: 'development',
   target: 'web',
   entry: {
     'dagre-d3': './index.js'
@@ -28,6 +29,7 @@ const config = {
 }
 
 const coreConfig = {
+  mode: 'development',
   target: 'node',
   externals: [nodeExternals()],
   entry: {
