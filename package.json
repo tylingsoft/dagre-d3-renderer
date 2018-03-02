@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "d3": "3.5.17",
-    "dagre-layout": "^0.8.4",
+    "dagre-layout": "^0.8.5",
     "graphlib": "^2.1.5",
     "lodash": "^4.17.5"
   },
@@ -41,7 +41,7 @@
     "puppeteer": "^1.1.1",
     "standard": "^11.0.0",
     "webpack": "^4.0.1",
-    "webpack-cli": "^2.0.9",
+    "webpack-cli": "^2.0.10",
     "webpack-node-externals": "^1.6.0",
     "yarn-upgrade-all": "^0.3.0"
   },
