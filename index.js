@@ -1,5 +1,5 @@
 import d3 from 'd3'
-import graphlib from 'graphlib'
+import graphlib from 'graphlibrary'
 import dagre from 'dagre-layout'
 
 import intersect from './lib/intersect'
