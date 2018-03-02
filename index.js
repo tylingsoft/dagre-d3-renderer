@@ -1,4 +1,4 @@
-import d3 from 'd3'
+import * as d3 from 'd3'
 import graphlib from 'graphlibrary'
 import dagre from 'dagre-layout'
 
