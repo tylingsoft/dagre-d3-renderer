@@ -23,7 +23,6 @@
     "prepublishOnly": "yarn release"
   },
   "dependencies": {
-    "d3": "^4.13.0",
     "dagre-layout": "^0.8.6",
     "lodash": "^4.17.5"
   },
@@ -45,6 +44,9 @@
     "webpack-cli": "^2.0.10",
     "webpack-node-externals": "^1.6.0",
     "yarn-upgrade-all": "^0.3.0"
+  },
+  "peerDependencies": {
+    "d3": "^4.13.0"
   },
   "repository": {
     "type": "git",
