@@ -13,7 +13,7 @@ export default function (config) {
       { pattern: 'test/*.css', included: false },
       'node_modules/chai/chai.js',
       'node_modules/lodash/lodash.js',
-      'node_modules/d3/d3.js',
+      'node_modules/d3/build/d3.js',
       'dist/dagre-d3.js',
       'test/bundle-test.js'
     ],
