@@ -5,6 +5,7 @@
 
 <link rel="stylesheet" href="demo.css">
 <script src="../../node_modules/graphlibrary/dist/graphlib.js"></script>
+<script src="../../node_modules/d3/build/d3.js"></script>
 <script src="../dagre-d3.js"></script>
 
 <style id="css">
@@ -45,7 +46,6 @@ g.setNode("circle", { shape: "circle" });
 g.setNode("ellipse", { shape: "ellipse" });
 g.setNode("diamond", { shape: "diamond" });
 
-window.d3 = dagreD3.d3;
 var svg = d3.select("svg"),
     inner = svg.select("g");
 

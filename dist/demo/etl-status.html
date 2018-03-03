@@ -4,6 +4,7 @@
 <title>Dagre D3 Renderer Demo</title>
 
 <script src="../../node_modules/graphlibrary/dist/graphlib.js"></script>
+<script src="../../node_modules/d3/build/d3.js"></script>
 <script src="../dagre-d3.js"></script>
 
 <style>
@@ -193,7 +194,6 @@
   };
 
   // Set up zoom support
-  window.d3 = dagreD3.d3;
   var svg = d3.select("svg"),
       inner = svg.select("g"),
       zoom = d3.zoom().on("zoom", function() {

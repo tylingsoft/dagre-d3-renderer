@@ -4,6 +4,7 @@
 <title>Dagre Interactive Demo</title>
 
 <script src="./graphlib-dot.js"></script>
+<script src="../../node_modules/d3/build/d3.js"></script>
 <script src="../dagre-d3.js"></script>
 
 <style>
@@ -113,7 +114,6 @@ function graphToURL() {
 
 var inputGraph = document.querySelector("#inputGraph");
 
-window.d3 = dagreD3.d3;
 var graphLink = d3.select("#graphLink");
 
 var oldInputGraphValue;

@@ -4,6 +4,7 @@
 <title>Graph Storyboard. Add and Prune Dependencies Algorithm</title>
 
 <script src="../../node_modules/graphlibrary/dist/graphlib.js"></script>
+<script src="../../node_modules/d3/build/d3.js"></script>
 <script src="../dagre-d3.js"></script>
 
 <style id="css">
@@ -114,7 +115,6 @@ var dagred3Story = function(svgelement, graphType, interframetime) {
 	default:
 		console.log ("graphType of "+x+" is not implemented")
   }
-  window.d3 = dagreD3.d3;
 	this.svg = d3.select(svgelement);
   this.inner = this.svg.append("g");
 	this.svg.call(d3.zoom().on("zoom", (function() {

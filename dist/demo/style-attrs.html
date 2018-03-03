@@ -5,6 +5,7 @@
 
 <link rel="stylesheet" href="demo.css">
 <script src="../../node_modules/graphlibrary/dist/graphlib.js"></script>
+<script src="../../node_modules/d3/build/d3.js"></script>
 <script src="../dagre-d3.js"></script>
 
 <h1>Dagre D3 Demo: Style Attributes</h1>
@@ -74,7 +75,6 @@ g.setEdge("C", "B", {
 
 // Make the edge between A and D smoother.
 // see available options for lineInterpolate here: https://github.com/mbostock/d3/wiki/SVG-Shapes#line_interpolate
-window.d3 = dagreD3.d3;
 g.setEdge("A", "D", {
   label: "line interpolation different",
   curve: d3.curveBasis
@@ -92,7 +92,6 @@ g.setEdge("A", "E", {
 var render = new dagreD3.render();
 
 // Set up an SVG group so that we can translate the final graph.
-window.d3 = dagreD3.d3;
 var svg = d3.select("svg"),
     inner = svg.append("g");
 
