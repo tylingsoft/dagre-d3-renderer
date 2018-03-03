@@ -26,7 +26,7 @@ describe('dagreD3', function () {
   })
 
   describe('exports', function () {
-    _.each(['dagre', 'intersect', 'util'], function (lib) {
+    _.each(['intersect', 'util'], function (lib) {
       it(lib, function () {
         expect(dagreD3[lib]).to.be.an('object')
       })
