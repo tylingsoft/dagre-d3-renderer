@@ -35,10 +35,6 @@ describe('dagreD3', function () {
     it('render', function () {
       expect(dagreD3.render).to.be.a('function')
     })
-
-    it('version', function () {
-      expect(dagreD3.version).to.be.a('string')
-    })
   })
 
   describe('DOM elements', function () {

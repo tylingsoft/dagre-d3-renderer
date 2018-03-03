@@ -1,6 +1,6 @@
 {
   "name": "dagre-d3-renderer",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "A D3-based renderer for Dagre",
   "keywords": [
     "graph",
@@ -19,7 +19,8 @@
     "build": "webpack --progress --colors",
     "build:watch": "yarn build --watch",
     "release": "yarn build -p",
-    "prepush": "yarn test"
+    "prepush": "yarn test",
+    "prepublishOnly": "yarn release"
   },
   "dependencies": {
     "d3": "^4.13.0",
