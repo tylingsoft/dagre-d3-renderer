@@ -4,6 +4,7 @@
 <title>Dagre D3 Demo: Sentence Tokenization</title>
 
 <link rel="stylesheet" href="demo.css">
+<script src="../../node_modules/graphlibrary/dist/graphlib.js"></script>
 <script src="../dagre-d3.js"></script>
 
 <h1>Dagre D3 Demo: Sentence Tokenization</h1>
@@ -41,7 +42,7 @@ how CSS classes can be applied to a rendered graph.
 
 <script id="js">
 // Create the input graph
-var g = new dagreD3.graphlib.Graph()
+var g = new graphlib.Graph()
   .setGraph({})
   .setDefaultEdgeLabel(function() { return {}; });
 

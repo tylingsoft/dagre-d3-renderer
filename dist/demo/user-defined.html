@@ -4,6 +4,7 @@
 <title>Dagre D3 Demo: User-defined Shapes and Arrows</title>
 
 <link rel="stylesheet" href="demo.css">
+<script src="../../node_modules/graphlibrary/dist/graphlib.js"></script>
 <script src="../dagre-d3.js"></script>
 
 <style id="css">
@@ -37,7 +38,7 @@ body {
 
 <script id="js">
 // Create a new directed graph
-var g = new dagreD3.graphlib.Graph().setGraph({});
+var g = new graphlib.Graph().setGraph({});
 
 g.setNode("house", { shape: "house", label: "house" });
 g.setNode("rect", { shape: "rect" });

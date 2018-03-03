@@ -1,5 +1,4 @@
 import * as d3 from 'd3'
-import graphlib from 'graphlibrary'
 import dagre from 'dagre-layout'
 
 import intersect from './lib/intersect'
@@ -9,7 +8,6 @@ import { version } from './package.json'
 
 export default {
   d3,
-  graphlib,
   dagre,
   intersect,
   render,

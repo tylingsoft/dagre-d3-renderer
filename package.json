@@ -24,7 +24,6 @@
   "dependencies": {
     "d3": "^4.13.0",
     "dagre-layout": "^0.8.5",
-    "graphlibrary": "^2.1.8",
     "lodash": "^4.17.5"
   },
   "devDependencies": {

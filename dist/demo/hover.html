@@ -4,6 +4,7 @@
 <title>Dagre D3 Demo: Tooltip on Hover</title>
 
 <link rel="stylesheet" href="demo.css">
+<script src="../../node_modules/graphlibrary/dist/graphlib.js"></script>
 <script src="../dagre-d3.js"></script>
 
 <!-- Pull in JQuery dependencies -->
@@ -60,7 +61,7 @@ for the tooltip.
 
 <script id="js">
 // Create a new directed graph
-var g = new dagreD3.graphlib.Graph().setGraph({});
+var g = new graphlib.Graph().setGraph({});
 
 // States and transitions from RFC 793
 var states = {

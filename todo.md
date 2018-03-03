@@ -1,2 +1,1 @@
 - d3 as peer dependency
-- Update d3 to version 4

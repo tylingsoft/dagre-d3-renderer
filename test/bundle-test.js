@@ -3,6 +3,7 @@ const _ = window._
 const expect = window.chai.expect
 const d3 = window.d3
 const dagreD3 = window.dagreD3
+const graphlib = window.graphlib
 
 d3.select('body').append('link')
   .attr('rel', 'stylesheet')
@@ -14,7 +15,7 @@ describe('dagreD3', function () {
 
   beforeEach(function () {
     svg = d3.select('body').append('svg')
-    g = new dagreD3.graphlib.Graph()
+    g = new graphlib.Graph()
       .setGraph({})
       .setDefaultNodeLabel(function () { return {} })
       .setDefaultEdgeLabel(function () { return {} })
@@ -25,7 +26,7 @@ describe('dagreD3', function () {
   })
 
   describe('exports', function () {
-    _.each(['graphlib', 'dagre', 'intersect', 'util'], function (lib) {
+    _.each(['dagre', 'intersect', 'util'], function (lib) {
       it(lib, function () {
         expect(dagreD3[lib]).to.be.an('object')
       })

@@ -3,6 +3,7 @@
 <meta charset="utf-8">
 <title>Dagre D3 Renderer Demo</title>
 
+<script src="../../node_modules/graphlibrary/dist/graphlib.js"></script>
 <script src="../dagre-d3.js"></script>
 
 <style>
@@ -203,7 +204,7 @@
   var render = new dagreD3.render();
 
   // Left-to-right layout
-  var g = new dagreD3.graphlib.Graph();
+  var g = new graphlib.Graph();
   g.setGraph({
     nodesep: 70,
     ranksep: 50,

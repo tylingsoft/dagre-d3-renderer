@@ -4,6 +4,7 @@
 <title>Dagre D3 Demo: TCP State Diagram</title>
 
 <link rel="stylesheet" href="demo.css">
+<script src="../../node_modules/graphlibrary/dist/graphlib.js"></script>
 <script src="../dagre-d3.js"></script>
 
 <style id="css">
@@ -36,7 +37,7 @@ initial zoom.
 
 <script id="js">
 // Create a new directed graph
-var g = new dagreD3.graphlib.Graph().setGraph({});
+var g = new graphlib.Graph().setGraph({});
 
 // States and transitions from RFC 793
 var states = [ "CLOSED", "LISTEN", "SYN RCVD", "SYN SENT",

@@ -3,6 +3,7 @@
 <meta charset="utf-8">
 <title>Graph Storyboard. Add and Prune Dependencies Algorithm</title>
 
+<script src="../../node_modules/graphlibrary/dist/graphlib.js"></script>
 <script src="../dagre-d3.js"></script>
 
 <style id="css">
@@ -88,7 +89,7 @@ if (!Function.prototype.bind) {
 var dagred3Story = function(svgelement, graphType, interframetime) {
 	this.interframetime = interframetime;
 	this.lastrenderTime = null;
-	this.g = new dagreD3.graphlib.Graph().setGraph({});
+	this.g = new graphlib.Graph().setGraph({});
 	//// Setup animation (if required)
 	//this.g.graph().transition = function(selection) {
     //  return selection.transition().duration(50);
