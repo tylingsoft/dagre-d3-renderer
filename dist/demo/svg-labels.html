@@ -87,6 +87,7 @@
     var render = new dagreD3.render();
 
     // Set up an SVG group so that we can translate the final graph.
+    window.d3 = dagreD3.d3;
     var svg = d3.select("svg"),
             svgGroup = svg.append("g");
 
