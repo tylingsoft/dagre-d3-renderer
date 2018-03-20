@@ -1,3 +1,4 @@
 node_modules/
 dist/*.js
 dist/*.map
+yarn-error.log
