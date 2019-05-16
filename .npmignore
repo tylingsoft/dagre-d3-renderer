@@ -1,7 +1,16 @@
 /browser.js
 /build
-/demo
+/dist/demo
 /Makefile
 /node_modules
 /src
 /test
+
+/.ackrc
+/.babelrc
+/.editorconfig
+/todo.md
+/karma.conf.js
+/webpack.config.babel.js
+/yarn-error.log
+/yarn.lock
